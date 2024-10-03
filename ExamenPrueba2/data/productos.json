@@ -1,0 +1,112 @@
+{
+    "productes": [
+        {
+        "id": 1,
+        "nom": "nike Air Max 90",
+        "imatge": "./assets/images/products/jacket-1.jpg",
+        "descripcio": "Comfortable 90",
+        "preu": 120.00,
+        "descompte": 0,
+        "marca": "nike"
+        },
+        {
+        "id": 2,
+        "nom": "reebook Classic Leather",
+        "imatge": "./assets/images/products/perfume.jpg",
+        "descripcio": "Comfortable Leather",
+        "preu": 90.00,
+        "descompte": 25,
+        "marca": "reebook"
+        },
+        {
+        "id": 3,
+        "nom": "adidas Ultraboost",
+        "imatge": "./assets/images/products/shirt-1.jpg",
+        "descripcio": "Comfortable Ultraboost",
+        "preu": 180.00,
+        "descompte": 0,
+        "marca": "adidas"
+        },
+        {
+        "id": 4,
+        "nom": "puma  Classic",
+        "imatge": "./assets/images/products/shoe-1.jpg",
+        "descripcio": "Comfortable Classic",
+        "preu": 70.00,
+        "descompte": 50,
+        "marca": "puma"
+        },
+        {
+        "id": 5,
+        "nom": "nike Air Force 1",
+        "imatge": "./assets/images/products/watch-4.jpg",
+        "descripcio": "Comfortable Force",
+        "preu": 100.00,
+        "descompte": 0,
+        "marca": "nike"
+        },
+        {
+        "id": 6,
+        "nom": "reebook Nano X",
+        "imatge": "./assets/images/products/sports-3.jpg",
+        "descripcio": "Comfortable X",
+        "preu": 130.00,
+        "descompte": 50,
+        "marca": "reebook"
+        },
+        {
+        "id": 7,
+        "nom": "adidas Smith",
+        "imatge": "./assets/images/products/shorts-1.jpg",
+        "descripcio": "Comfortable Smith",
+        "preu": 80.00,
+        "descompte": 0,
+        "marca": "adidas"
+        },
+        {
+        "id": 8,
+        "nom": "puma RS",
+        "imatge": "./assets/images/products/shoe-2.jpg",
+        "descripcio": "Comfortable RS",
+        "preu": 110.00,
+        "descompte": 25,
+        "marca": "puma"
+        },
+        {
+        "id": 9,
+        "nom": "nike Run",
+        "imatge": "./assets/images/products/jacket-2.jpg",
+        "descripcio": "Comfortable Run",
+        "preu": 160.00,
+        "descompte": 0,
+        "marca": "nike"
+        },
+        {
+        "id": 10,
+        "nom": "reebook Zip",
+        "imatge": "./assets/images/products/party-wear-1.jpg",
+        "descripcio": "Comfortable Zip",
+        "preu": 120.00,
+        "descompte": 50,
+        "marca": "reebook"
+        },
+        {
+        "id": 11,
+        "nom": "adidas R1",
+        "imatge": "./assets/images/products/shoe-3.jpg",
+        "descripcio": "Comfortable R1",
+        "preu": 140.00,
+        "descompte": 25,
+        "marca": "adidas"
+        },
+        {
+        "id": 12,
+        "nom": "puma Rider",
+        "imatge": "./assets/images/products/jewellery-1.jpg",
+        "descripcio": "Comfortable Rider",
+        "preu": 90.00,
+        "descompte": 0,
+        "marca": "puma"
+        }
+    ]
+    }
