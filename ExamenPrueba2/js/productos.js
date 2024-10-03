@@ -1,11 +1,11 @@
-// State
+// State Necesario para Local storage
 let state = {
   products: [],
   filteredProducts: [],
   favorites: []
 };
 
-// loadState
+// loadState Cargar Local storage 
 function loadState(){
   const stateStorage = sessionStorage.getItem("state");
   if(stateStorage){
@@ -13,11 +13,12 @@ function loadState(){
   }
 }
 
-// saveState
+// saveState Guardar Local storage
 function saveState(){
   sessionStorage.setItem("state",JSON.stringify(state));
 }
 
+// Funcion para cargar los productos del json
 function loadProducts(){    
     fetch("./data/productos.json")
         .then(response => response.json())
@@ -31,10 +32,14 @@ function loadProducts(){
         .catch(error => console.error("Error loading products:", error));
 }
 
-function displayProducts(products){  
+//Funcion para enseñar los productos cargados gracias a la funcion anterior
+function displayProducts(products){
+    //Especificamos donde vamos a trabajar nos encargamos de una seccion con la clase product-grid  
     const productGrid = document.querySelector(".product-grid");
+    //vaciamosproduct-grid 
     productGrid.innerHTML = "";
 
+    // hacemos un foreach para sacar la informacion de cada producto individualmente en este caso sacamos favoritos descuentos y estrellas
     products.forEach((product) => {
         const isFavorite = state.favorites.includes(product.id);
         var reducedPrice =  (product.preu * (1 - product.descompte/100)).toFixed(2);
@@ -52,8 +57,8 @@ function displayProducts(products){
           stars += `<i class="star ${product.puntuacio > i?'fa-solid fa-star':'fa-solid fa-star grey-star'}" data-id="${product.id}" data-puntuacio="${i+1}"></i>`;
         }
 
-        //  <p class="price">${reducedPrice} € ${product.descompte? `<del>${product.preu} €</del>`:""}</p>
-       
+        
+       // Lo construimos
         const productCard = `
         <article class="card">
           <div class="info-1">
@@ -76,7 +81,7 @@ function displayProducts(products){
         `;  
         productGrid.innerHTML += productCard;    
     });
-
+    // usamos las funciones toggleFavorite, setStarRating que cuando clicken a los botones especificados 
     document.querySelectorAll(".favorite").forEach(icon => {
       icon.addEventListener("click",toggleFavorite);
     });
@@ -86,6 +91,7 @@ function displayProducts(products){
     });
 }
 
+// funcion que guarda en local storage y en la pagina los favoritos
 function toggleFavorite(event){
   const productId = Number(event.target.dataset.id);
   const index = state.favorites.indexOf(productId);
@@ -96,11 +102,11 @@ function toggleFavorite(event){
   else {
     state.favorites.splice(index,1);
   }
-
+  // necesario para que se guarde en local storage
   saveState();
   displayProducts(state.filteredProducts);
 }
-
+  //funcion que guarda las estrellas
 function setStarRating(event){
   const productId = Number(event.target.dataset.id);
   const score = Number(event.target.dataset.puntuacio);
@@ -116,6 +122,7 @@ function setStarRating(event){
   }
 }
 
+  //boton que filtra los objetos por precio maximo
 function filterByDiscountedPrice(maxPrice){
   state.filteredProducts = state.products.filter(product => {
     let reducedPrice = product.preu * (1 - product.descompte/100);
@@ -123,22 +130,22 @@ function filterByDiscountedPrice(maxPrice){
   });
   displayProducts(state.filteredProducts);
 }
-
+  //boton que borra los filtros que tengamos en la pagina
 function resetAll(){
   state.filteredProducts = [...state.products];
   displayProducts(state.filteredProducts);
 }
-
+  //boton que nos enseña los favoritos
 function showFavorites(){
   state.filteredProducts = state.products.filter(product => state.favorites.includes(product.id));
   displayProducts(state.filteredProducts);
 }
-
+  //boton que nos enseña los no favoritos
 function showNonFavorites(){
   state.filteredProducts = state.products.filter(product => !state.favorites.includes(product.id));
   displayProducts(state.filteredProducts);
 }
-
+  //filtra por marca
 function filterByBrand(brand){
   const productGrid = document.querySelector(".product-grid");
 
@@ -149,7 +156,7 @@ function filterByBrand(brand){
     displayProducts(state.filteredProducts);
   }
 }
-
+//ordena a-z z-a de mayo a menor o de menor a mayor
 function sortProducts(order){
   if(order == "Aasc"){
     state.filteredProducts.sort((a,b) => a.nom.localeCompare(b.nom));
@@ -173,7 +180,7 @@ function sortProducts(order){
   }
   displayProducts(state.filteredProducts);
 }
-
+//init necesario para que cuando cargues la pagina funcione los selectores
 function init(){
   // Filtres de marca
   const pickBrands = document.querySelectorAll(".main-nav a");
