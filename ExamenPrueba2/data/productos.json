@@ -5,9 +5,11 @@
         "nom": "nike Air Max 90",
         "imatge": "./assets/images/products/jacket-1.jpg",
         "descripcio": "Comfortable 90",
-        "preu": 120.00,
+        "preu": 10.00,
         "descompte": 0,
-        "marca": "nike"
+        "marca": "nike",
+        "puntuacio":1
+        
         },
         {
         "id": 2,
@@ -16,7 +18,8 @@
         "descripcio": "Comfortable Leather",
         "preu": 90.00,
         "descompte": 25,
-        "marca": "reebook"
+        "marca": "reebook",
+        "puntuacio":2
         },
         {
         "id": 3,
@@ -25,7 +28,8 @@
         "descripcio": "Comfortable Ultraboost",
         "preu": 180.00,
         "descompte": 0,
-        "marca": "adidas"
+        "marca": "adidas",
+        "puntuacio":2
         },
         {
         "id": 4,
@@ -34,7 +38,8 @@
         "descripcio": "Comfortable Classic",
         "preu": 70.00,
         "descompte": 50,
-        "marca": "puma"
+        "marca": "puma",
+        "puntuacio":2
         },
         {
         "id": 5,
@@ -43,7 +48,8 @@
         "descripcio": "Comfortable Force",
         "preu": 100.00,
         "descompte": 0,
-        "marca": "nike"
+        "marca": "nike",
+        "puntuacio":2
         },
         {
         "id": 6,
@@ -52,7 +58,8 @@
         "descripcio": "Comfortable X",
         "preu": 130.00,
         "descompte": 50,
-        "marca": "reebook"
+        "marca": "reebook",
+        "puntuacio":2
         },
         {
         "id": 7,
@@ -61,7 +68,8 @@
         "descripcio": "Comfortable Smith",
         "preu": 80.00,
         "descompte": 0,
-        "marca": "adidas"
+        "marca": "adidas",
+        "puntuacio":2
         },
         {
         "id": 8,
@@ -70,7 +78,8 @@
         "descripcio": "Comfortable RS",
         "preu": 110.00,
         "descompte": 25,
-        "marca": "puma"
+        "marca": "puma",
+        "puntuacio":2
         },
         {
         "id": 9,
@@ -79,7 +88,8 @@
         "descripcio": "Comfortable Run",
         "preu": 160.00,
         "descompte": 0,
-        "marca": "nike"
+        "marca": "nike",
+        "puntuacio":2
         },
         {
         "id": 10,
@@ -88,7 +98,8 @@
         "descripcio": "Comfortable Zip",
         "preu": 120.00,
         "descompte": 50,
-        "marca": "reebook"
+        "marca": "reebook",
+        "puntuacio":2
         },
         {
         "id": 11,
@@ -97,7 +108,8 @@
         "descripcio": "Comfortable R1",
         "preu": 140.00,
         "descompte": 25,
-        "marca": "adidas"
+        "marca": "adidas",
+        "puntuacio":2
         },
         {
         "id": 12,
@@ -106,7 +118,8 @@
         "descripcio": "Comfortable Rider",
         "preu": 90.00,
         "descompte": 0,
-        "marca": "puma"
+        "marca": "puma",
+        "puntuacio":2
         }
     ]
     }

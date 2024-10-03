@@ -19,7 +19,7 @@ function saveState(){
 }
 
 function loadProducts(){    
-    fetch("./assets/data/products.json")
+    fetch("./data/productos.json")
         .then(response => response.json())
         .then(data => {
             state.products = data.productes;
@@ -36,8 +36,10 @@ function displayProducts(products){
     productGrid.innerHTML = "";
 
     products.forEach((product) => {
+        const isFavorite = state.favorites.includes(product.id);
         var reducedPrice =  (product.preu * (1 - product.descompte/100)).toFixed(2);
         var displayPrice = "";
+        var stars = "";
 
         if(product.descompte){
             displayPrice = reducedPrice+" € <del>"+product.preu+" €</del>";
@@ -45,9 +47,13 @@ function displayProducts(products){
         else{
             displayPrice = reducedPrice+" € ";
         }
+       
+        for(let i=0; i<5; i++){
+          stars += `<i class="star ${product.puntuacio > i?'fa-solid fa-star':'fa-solid fa-star grey-star'}" data-id="${product.id}" data-puntuacio="${i+1}"></i>`;
+        }
 
         //  <p class="price">${reducedPrice} € ${product.descompte? `<del>${product.preu} €</del>`:""}</p>
-
+       
         const productCard = `
         <article class="card">
           <div class="info-1">
@@ -56,6 +62,7 @@ function displayProducts(products){
             <h5>${product.marca}</h5>
             <h4>${product.descripcio}</h4>
           </div>
+          <div class="info2">${stars}</div>
           <div class="info2">
             <div class="price-box">
               <p class="price">${displayPrice}</p>
@@ -63,16 +70,72 @@ function displayProducts(products){
             </div>
           </div>
           <div class="favorite">
-              <i class="fa-solid fa-heart"></i>
+              <i class="fa-${isFavorite?'solid':'regular'} fa-heart" data-id="${product.id}"></i>
           </div>
         </article>
         `;  
         productGrid.innerHTML += productCard;    
     });
+
+    document.querySelectorAll(".favorite").forEach(icon => {
+      icon.addEventListener("click",toggleFavorite);
+    });
+
+    document.querySelectorAll(".star").forEach(icon => {
+      icon.addEventListener("click",setStarRating);
+    });
+}
+
+function toggleFavorite(event){
+  const productId = Number(event.target.dataset.id);
+  const index = state.favorites.indexOf(productId);
+
+  if(index == -1){
+    state.favorites.push(productId);
+  }
+  else {
+    state.favorites.splice(index,1);
+  }
+
+  saveState();
+  displayProducts(state.filteredProducts);
+}
+
+function setStarRating(event){
+  const productId = Number(event.target.dataset.id);
+  const score = Number(event.target.dataset.puntuacio);
+
+  const product = state.products.find(product => product.id == productId);
+  const filteredProduct = state.filteredProducts.find(product => product.id == productId);
+
+  if(filteredProduct){
+    product.puntuacio = score;
+    filteredProduct.puntuacio = score;
+    saveState();
+    displayProducts(state.filteredProducts);
+  }
+}
+
+function filterByDiscountedPrice(maxPrice){
+  state.filteredProducts = state.products.filter(product => {
+    let reducedPrice = product.preu * (1 - product.descompte/100);
+    return reducedPrice <= maxPrice;
+  });
+  displayProducts(state.filteredProducts);
 }
 
 function resetAll(){
-  state.filteredProducts = [...data.productes];
+  state.filteredProducts = [...state.products];
+  displayProducts(state.filteredProducts);
+}
+
+function showFavorites(){
+  state.filteredProducts = state.products.filter(product => state.favorites.includes(product.id));
+  displayProducts(state.filteredProducts);
+}
+
+function showNonFavorites(){
+  state.filteredProducts = state.products.filter(product => !state.favorites.includes(product.id));
   displayProducts(state.filteredProducts);
 }
 
@@ -112,7 +175,6 @@ function sortProducts(order){
 }
 
 function init(){
-
   // Filtres de marca
   const pickBrands = document.querySelectorAll(".main-nav a");
   pickBrands.forEach(link => {
@@ -128,7 +190,11 @@ function init(){
         sortProducts(order);
   });
 
+  document.querySelector(".icons-container .fa-solid.fa-heart").addEventListener("click",showFavorites);
+  document.querySelector(".icons-container .fa-regular.fa-heart").addEventListener("click",showNonFavorites);
   document.querySelector(".fa-eraser").addEventListener("click",resetAll);
+
+  document.querySelector(".hero button").addEventListener("click", () => filterByDiscountedPrice(70));
 
   loadProducts();
 }
