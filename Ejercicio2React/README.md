@@ -1,1 +1,0 @@
-https://marketplace.visualstudio.com/items?itemName=dsznajder.es7-react-js-snippets
