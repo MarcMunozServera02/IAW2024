@@ -1,0 +1,74 @@
+[
+    {
+        "id":1,
+        "name":"Leather Jacket",
+        "description":"Mens Winter Leathers Jackets",
+        "price":48,
+        "stars":4,
+        "percentDiscount":50,
+        "image":"jacket-3.jpg"
+    },
+    {
+        "id":2,
+        "name":"Shirt",
+        "description":"Pure Garment Dyed Cotton Shirt",
+        "price":45,
+        "stars":4,
+        "percentDiscount":10,
+        "image":"shirt-1.jpg"
+    },
+    {
+        "id":3,
+        "name":"Jacket",
+        "description":"MEN Yarn Fleece Full-Zip Jacket",
+        "price":58,
+        "stars":4,
+        "percentDiscount":10,
+        "image":"jacket-5.jpg"
+    },
+    {
+        "id":4,
+        "name":"Skirt",
+        "description":"Black Floral Wrap Midi Skirt",
+        "price":25,
+        "stars":4,
+        "percentDiscount":10,
+        "image":"clothes-3.jpg"
+    },
+    {
+        "id":5,
+        "name":"Pocket Watch",
+        "description":"Pocket Watch Leather Pouch",
+        "price":100,
+        "stars":4,
+        "percentDiscount":10,
+        "image":"watch-3.jpg"
+    },
+    {
+        "id":6,
+        "name":"Digital Watch",
+        "description":"Smart watch Vital Plus",
+        "price":120,
+        "stars":5,
+        "percentDiscount":10,
+        "image":"watch-1.jpg"
+    },
+    {
+        "id":7,
+        "name":"Party wear shoes",
+        "description":"Womens Party Wear Shoes",
+        "price":110,
+        "stars":3,
+        "percentDiscount":10,
+        "image":"party-wear-1.jpg"
+    },
+    {
+        "id":8,
+        "name":"Sport shoes",
+        "description":"Running & Trekking Shoes - White",
+        "price":58,
+        "stars":4,
+        "percentDiscount":10,
+        "image":"sports-1.jpg"
+    }
+]
